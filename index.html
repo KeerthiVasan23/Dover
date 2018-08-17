@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Keerthi Vasan</title>
+</head>
+<body>
+<center>
+<strong><h1>DOVER</h1></strong><br><br><br><br><br>
+<p>
+<form id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data" style="display:inline-block;">
+    <input type="file" name="file" accept=".csv">
+    <input type="submit" value="Upload!" id="upload-button">
+</form>
+<form id="download-form" action="{{ url_for('download') }}" method="POST" enctype="multipart/form-data" style="display:inline-block;">
+    <input type="submit" value="Download :)" id="download-button">
+</form>
+</p>
+</center>
+</body>
+</html>
