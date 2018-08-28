@@ -13,12 +13,14 @@ Output Information
 Requirements
 ------------
 **Flask**
+
 Flask is a micro web framework written in Python. It is classified as a microframework because it does not require particular tools of libraries.
 
 ```
 $ pip install flask
 ```
 **Py-whois**
+
 Python module/library for retrieving WHOIS information of domains.
 
 ```
@@ -39,7 +41,7 @@ STEP 3 : Run app.py.
 ```
 $ python app.py
 ```
-STEP 4 : Go to the url in your browser(DEFAULT: 127.0.0.1:4444).
+STEP 4 : Go to the url in your browser(Default: 127.0.0.1:4444).
 
 
 STEP 5 : Browse and upload the csv files containing urls.
