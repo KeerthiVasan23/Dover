@@ -1,8 +1,10 @@
 # importing csv module
 import csv
 import whois
- 
-filename = "input.csv"
+import os
+
+os.system('python permutation.py')
+filename = "permu.csv"
  
 fields = []
 rows = []
@@ -14,19 +16,25 @@ with open(filename, 'r') as csvfile:
         rows.append(row)
 
 filename = "output.csv"
-fields = ['Domain name','Creation','ID','Location','IP','Expiration']
+fields = ['Domain name','Creation','Expiration','ID','Location','IP']
 with open(filename, 'w') as csvfile:
     csvwriter = csv.writer(csvfile)
     csvwriter.writerow(fields)
 
     for row in rows:
    	for col in row:
-		x=whois.whois(col)
-		csvwriter.writerow([(x.domain_name[1]),
-		(x.creation_date[0]),
-		(x.registry_domain_id),
-		(x.state),
-		(x.registrar_url),
-		(x.expiration_date[0])])
+		try:
+			x=whois.whois(col)
+			rowww=[]
+			try:
+				csvwriter.writerow([(x.domain_name[1]),(x.creation_date[0]),(x.expiration_date[0]),(x.registry_domain_id),
+			(x.state),
+			(x.registrar_url)])
+			except TypeError:
+				csvwriter.writerow([(x.domain_name),(x.creation_date),(x.expiration_date),(x.registry_domain_id),
+			(x.state),
+			(x.registrar_url)])
+		except(whois.parser.PywhoisError):
+			print('\n')
 	print('\n')
 
